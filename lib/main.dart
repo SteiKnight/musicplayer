@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/models/playlist_provider.dart';
 import 'package:musicplayer/pages/home_page.dart';
-import 'package:musicplayer/themes/dark_mode.dart';
 import 'package:musicplayer/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        //providers
+        //theme provider
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (context) => ThemeProvider(),
+        ),
+
+        //playlist provider
+        ChangeNotifierProvider<PlaylistProvider>(
+          create: (context) => PlaylistProvider(),
+        )
+      ],
       child: const MyApp(),
     ),
   );
