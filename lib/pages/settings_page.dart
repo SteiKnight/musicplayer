@@ -9,6 +9,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
         appBar: AppBar(
           title: const Text('S E T T I N G S'),
           centerTitle: true,
@@ -27,7 +28,7 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   Text(
                     'Dark Mode',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                   //switch
                   CupertinoSwitch(
