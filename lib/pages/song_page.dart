@@ -107,9 +107,8 @@ class SongPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               //start time
-                              Text(playlistProvider.currentDuration
-                                  .toString()
-                                  .split('.')[0]),
+                              Text(
+                                  '${playlistProvider.currentDuration.toString().split('.')[0].split(':')[1]}:${playlistProvider.currentDuration.toString().split('.')[0].split(':')[2]}'),
 
                               //shuffle  icon
                               Icon(Icons.shuffle),
@@ -118,7 +117,8 @@ class SongPage extends StatelessWidget {
                               Icon(Icons.repeat),
 
                               //end time
-                              Text("3:45"),
+                              Text(
+                                  '${playlistProvider.totalDuration.toString().split('.')[0].split(':')[1]}:${playlistProvider.totalDuration.toString().split('.')[0].split(':')[2]}'),
                             ],
                           ),
                         ],

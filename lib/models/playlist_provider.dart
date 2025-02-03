@@ -108,7 +108,7 @@ class PlaylistProvider extends ChangeNotifier {
   void previousSong() async {
     // if duration is greater than 5 seconds, go to the beginning of the song
     if (_currentDuration.inSeconds > 5) {
-      await audioPlayer.seek(Duration.zero);
+      audioPlayer.seek(Duration.zero);
       return;
     } else if (currentSongIndex == 0) {
       currentSongIndex = playlist.length - 1;
