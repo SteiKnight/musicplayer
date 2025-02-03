@@ -10,12 +10,12 @@ void main() {
       providers: [
         //providers
         //theme provider
-        ChangeNotifierProvider<ThemeProvider>(
+        ChangeNotifierProvider(
           create: (context) => ThemeProvider(),
         ),
 
         //playlist provider
-        ChangeNotifierProvider<PlaylistProvider>(
+        ChangeNotifierProvider(
           create: (context) => PlaylistProvider(),
         )
       ],
