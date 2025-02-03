@@ -134,7 +134,11 @@ class PlaylistProvider extends ChangeNotifier {
     //listen for song completeion
     audioPlayer.onPlayerComplete.listen((event) {
       //play next song
-      nextSong();
+      if (isRepeatChecked == true) {
+        play();
+      } else {
+        nextSong();
+      }
     });
   }
 
@@ -148,15 +152,43 @@ class PlaylistProvider extends ChangeNotifier {
   bool get isPlaying => _isPlaying;
   Duration get currentDuration => _currentDuration;
   Duration get totalDuration => _totalDuration;
+  bool? get isRepeatChecked => _isRepeatChecked;
 
   /*
    S E T T E R S
    */
 
+  //set current duration
+  set currentDuration(Duration duration) {
+    _currentDuration = duration;
+    notifyListeners();
+  }
+
+  //repeat song
+  bool _isRepeatChecked = false;
+
   //set is playing
   set isPlaying(bool isPlaying) {
     _isPlaying = isPlaying;
     notifyListeners();
+  }
+
+  //set repeat
+  set isRepeatChecked(bool? value) {
+    _isRepeatChecked = value!;
+    notifyListeners();
+  }
+
+  void isRepeatToggle() {
+    if (_isRepeatChecked == true) {
+      isRepeatChecked = false;
+      notifyListeners();
+    } else {
+      isRepeatChecked = true;
+      notifyListeners();
+    }
+
+    //set current song index
   }
 
   set currentSongIndex(int? index) {

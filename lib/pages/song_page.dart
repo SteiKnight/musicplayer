@@ -108,17 +108,22 @@ class SongPage extends StatelessWidget {
                             children: [
                               //start time
                               Text(
-                                  '${playlistProvider.currentDuration.toString().split('.')[0].split(':')[1]}:${playlistProvider.currentDuration.toString().split('.')[0].split(':')[2]}'),
+                                  '${playlistProvider.currentDuration.inMinutes}:${playlistProvider.currentDuration.inSeconds.remainder(60).toString().padLeft(2, '0')}'),
 
                               //shuffle  icon
                               Icon(Icons.shuffle),
 
                               //repeat icon
-                              Icon(Icons.repeat),
+
+                              IconButton(
+                                  onPressed: playlistProvider.isRepeatToggle,
+                                  icon: Icon(playlistProvider.isRepeatChecked!
+                                      ? Icons.repeat_one
+                                      : Icons.repeat)),
 
                               //end time
                               Text(
-                                  '${playlistProvider.totalDuration.toString().split('.')[0].split(':')[1]}:${playlistProvider.totalDuration.toString().split('.')[0].split(':')[2]}'),
+                                  '${playlistProvider.totalDuration.inMinutes}:${playlistProvider.totalDuration.inSeconds.remainder(60).toString().padLeft(2, '0')}'),
                             ],
                           ),
                         ],
@@ -139,7 +144,7 @@ class SongPage extends StatelessWidget {
                               .toDouble(),
                           activeColor: Colors.red,
                           onChanged: (double value) {
-                            //when the user is sliding around
+                            //the slider while the user is sliding around
                           },
                           onChangeEnd: (double value) =>
                               //sliding has finished
