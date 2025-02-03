@@ -158,12 +158,6 @@ class PlaylistProvider extends ChangeNotifier {
    S E T T E R S
    */
 
-  //set current duration
-  set currentDuration(Duration duration) {
-    _currentDuration = duration;
-    notifyListeners();
-  }
-
   //repeat song
   bool _isRepeatChecked = false;
 
