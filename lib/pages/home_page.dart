@@ -33,8 +33,8 @@ class _HomePageState extends State<HomePage> {
       context,
       MaterialPageRoute(
         builder: (context) => SongPage(
-          playlistProvider: playlistProvider,
-        ),
+            //playlistProvider: playlistProvider,
+            ),
       ),
     );
   }
